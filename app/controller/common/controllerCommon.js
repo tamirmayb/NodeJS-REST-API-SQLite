@@ -16,6 +16,13 @@ class controllerCommon {
             res.json(error);
         }
     }
+
+    invalidParamError(res) {
+        return (error) => {
+            res.status(400); // Bad Request
+            res.json(error);
+        }
+    }
 }
 
 module.exports = controllerCommon;

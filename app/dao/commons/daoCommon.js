@@ -21,30 +21,10 @@ class Common {
                     );
                 } else if (rows === null || rows.length === 0) {
                     reject(
-                        new DaoError(21, "Entity not found")
+                        new DaoError(21, "Searched category not found")
                     );
                 } else {
                     resolve(rows);
-                }
-            })
-        });
-    }
-
-    findOne(sqlRequest, sqlParams) {
-        return new Promise(function (resolve, reject) {
-            const stmt = database.db.prepare(sqlRequest);
-            stmt.all(sqlParams, function (err, rows) {
-                if (err) {
-                    reject(
-                        new DaoError(11, "Invalid arguments")
-                    );
-                } else if (rows === null || rows.length === 0) {
-                    reject(
-                        new DaoError(21, "Entity not found")
-                    );
-                } else {
-                    const row = rows[0];
-                    resolve(row);
                 }
             })
         });

@@ -15,25 +15,16 @@ class CategoryController {
     }
 
     /**
-     * Tries to find an entity using its Id / Primary Key
+     * Tries to find all entities with root as Id / Primary Key
      * @params req, res
      * @return entity
      */
     findById(req, res) {
         const id = req.params.id;
 
-        this.categoryDao.findById(id)
-            .then(this.common.findSuccess(res))
-            .catch(this.common.findError(res));
-    };
-
-    /**
-     * Tries to find all entities with root as Id / Primary Key
-     * @params req, res
-     * @return entity
-     */
-    findByIdWithSiblings(req, res) {
-        const id = req.params.id;
+        if(!this._isValidCategoryId(id)) {
+            return res.status(400).json({error: 'Invalid Category id'});
+        }
 
         this.categoryDao.findByIdWithSiblings(id)
             .then(this.common.findSuccess(res))
@@ -45,11 +36,14 @@ class CategoryController {
      * @return all entities
      */
     findAll(res) {
-        console.log(1111);
         this.categoryDao.findAll()
             .then(this.common.findSuccess(res))
             .catch(this.common.findError(res));
     };
+
+    _isValidCategoryId(value) {
+        return /^-?\d+$/.test(value);
+    }
 }
 
 module.exports = CategoryController;

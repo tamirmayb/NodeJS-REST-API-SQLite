@@ -1,9 +1,13 @@
+const logger = require("../../logger/logger");
+
 /**
  * Controllers Common functions
  */
 class controllerCommon {
 
     findSuccess(res) {
+        logger.info('[ Common ] fetch completed successfully');
+
         return (result) => {
             res.status(200); // Found
             res.json(result);
@@ -17,12 +21,6 @@ class controllerCommon {
         }
     }
 
-    invalidParamError(res) {
-        return (error) => {
-            res.status(400); // Bad Request
-            res.json(error);
-        }
-    }
 }
 
 module.exports = controllerCommon;

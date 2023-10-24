@@ -4,6 +4,8 @@ const CategoryDao = require('../dao/categoryDao');
 /* Load Controller Common function */
 const ControllerCommon = require('./common/controllerCommon');
 
+const logger = require('../logger/logger');
+
 /**
  * Category Controller
  */
@@ -22,7 +24,10 @@ class CategoryController {
     findById(req, res) {
         const id = req.params.id;
 
+        logger.info('[ Category Controller ] is calling findById with input ' + id);
+
         if(!this._isValidCategoryId(id)) {
+            logger.warn('[ Category Controller ] found invalid error ' + id);
             return res.status(400).json({error: 'Invalid Category id'});
         }
 

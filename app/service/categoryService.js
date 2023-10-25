@@ -1,5 +1,5 @@
 /* Load database & database configuration */
-const database = require('../config/createDatabase');
+const database = require('../db/createDatabase');
 
 /* Load bluebird Promise */
 const Promise = require('bluebird');

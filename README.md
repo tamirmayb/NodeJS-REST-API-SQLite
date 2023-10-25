@@ -1,7 +1,7 @@
 # NodeJS REST API SQLite
 
-This project is Retraced backend home assignment solution
-It implements NodeJS REST API using SQLite as a database (sqlite.db).   
+- This project is Retraced backend home assignment solution
+- It implements NodeJS REST API using SQLite as a database (sqlite.db) as well as tests and Winston logger.
 
 ## Installation :
 
@@ -26,6 +26,7 @@ It implements NodeJS REST API using SQLite as a database (sqlite.db).
    - http://localhost:3070/category/ - Should fetch the whole category tree without filtering
    - http://localhost:3070/category/3 - Should fetch the tree from category 3 and on (category 3 is root).
 5. The project also contains a few tests which you can run by `npm test` 
+6. The project uses sqlite file based database which can be accessed from the file sqlite.db located on the root of the project.
 
 ## Author
 

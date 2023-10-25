@@ -4,13 +4,14 @@ const app = express();
 const bodyParser = require("body-parser");
 
 /* Database configuration */
-const database = require('./config/createDatabase');
+const database = require('./db/createDatabase');
+
 const logger = require("./logger/logger");
 
 /* Init database */
 database.init();
 
-/* Init server listening */
+/* start server */
 const port = 3070 ;
 app.listen(port, function () {
     logger.info("Server listening on port : " + port + "...");

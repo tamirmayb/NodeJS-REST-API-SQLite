@@ -9,7 +9,7 @@ const sqlite3 = require('sqlite3').verbose();
 /* Load database file (Creates file if not exists) */
 const db = new sqlite3.Database('./sqlite.db');
 
-/* Init category table if they don't exist */
+/* Init category table if it does not exist */
 const init = function () {
     logger.info('DB is starting');
 
@@ -31,8 +31,6 @@ const init = function () {
         "        (9, 'cat9', 8),\n" +
         "        (10, 'cat10', 8) " +
         "ON CONFLICT (id) DO NOTHING" );
-
-    // db.close();
 
 };
 module.exports = {

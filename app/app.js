@@ -5,14 +5,15 @@ const bodyParser = require("body-parser");
 
 /* Database configuration */
 const database = require('./config/createDatabase');
+const logger = require("./logger/logger");
 
 /* Init database */
 database.init();
 
 /* Init server listening */
-const port = 3070;
+const port = 3070 ;
 app.listen(port, function () {
-    console.log("Server listening on port : " + port);
+    logger.info("Server listening on port : " + port + "...");
 });
 
 /* Express configuration */

@@ -1,7 +1,7 @@
 {
   "name": "nodejs-rest-api-sqlite",
   "version": "1.0.0",
-  "description": "POC - NodeJS REST API using SQLite as a database.",
+  "description": "Backend assignment - NodeJS REST API using SQLite as a database.",
   "author": "Tamir Myblat",
   "dependencies": {
     "bluebird": "*",

@@ -1,17 +1,17 @@
-/* Load Category entity */
-const Category = require('../model/category');
+/* Load category entity */
+const category = require('../model/category');
 
 /* Load DAO Common functions */
-const daoCommon = require('./commons/daoCommon');
+const categoryService = require('../service/categoryService');
 
 /**
- * Category Data Access Object
+ * category Data Access Object
  */
 
 class CategoryDao {
 
     constructor() {
-        this.common = new daoCommon();
+        this.categoryService = new categoryService();
     }
 
     /**
@@ -39,10 +39,10 @@ class CategoryDao {
     };
 
     executeRequest(sqlRequest) {
-        return this.common.findAll(sqlRequest).then(rows => {
+        return this.categoryService.findAll(sqlRequest).then(rows => {
             const categories = [];
             for (const row of rows) {
-                categories.push(new Category(row.id, row.name, row.parentId));
+                categories.push(new category(row.id, row.name, row.parentId));
             }
             return categories;
         });

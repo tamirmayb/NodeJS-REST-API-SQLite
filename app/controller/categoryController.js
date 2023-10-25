@@ -1,8 +1,8 @@
 /* Load Category Data Access Object */
-const CategoryDao = require('../dao/categoryDao');
+const categoryDao = require('../dao/categoryDao');
 
 /* Load Controller Common function */
-const ControllerCommon = require('./common/controllerCommon');
+const resultHandler = require('../service/resultHandler');
 
 const logger = require('../logger/logger');
 
@@ -12,8 +12,8 @@ const logger = require('../logger/logger');
 class CategoryController {
 
     constructor() {
-        this.categoryDao = new CategoryDao();
-        this.common = new ControllerCommon();
+        this.categoryDao = new categoryDao();
+        this.resultHandler = new resultHandler();
     }
 
     /**
@@ -32,8 +32,8 @@ class CategoryController {
         }
 
         this.categoryDao.findByIdWithSiblings(id)
-            .then(this.common.findSuccess(res))
-            .catch(this.common.findError(res));
+            .then(this.resultHandler.findSuccess(res))
+            .catch(this.resultHandler.findError(res));
     };
 
     /**
@@ -42,8 +42,8 @@ class CategoryController {
      */
     findAll(res) {
         this.categoryDao.findAll()
-            .then(this.common.findSuccess(res))
-            .catch(this.common.findError(res));
+            .then(this.resultHandler.findSuccess(res))
+            .catch(this.resultHandler.findError(res));
     };
 
     _isValidCategoryId(value) {

@@ -6,20 +6,23 @@
   "dependencies": {
     "bluebird": "*",
     "body-parser": "*",
+    "chai-http": "^4.4.0",
     "ejs": "*",
-    "express": "^4.18.2",
+    "request-promise": "^4.2.6",
     "sqlite": "*",
-    "sqlite3": "^5.1.6",
     "winston": "^3.11.0"
   },
-  "license": "LGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/romwaldtff/NodeJS-REST-API-SQLite/issues"
-  },
-  "repository": "https://github.com/romwaldtff/NodeJS-REST-API-SQLite",
+  "repository": "https://github.com/tamirmayb/NodeJS-REST-API-SQLite.git",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "db:populate": "node dev/createDatabase.js"
+    "start": "node app/app.js",
+    "dev": "nodemon app/app.js",
+    "test": "jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "express": "^4.18.2",
+    "mocha": "^10.2.0",
+    "sqlite3": "^5.1.6",
+    "supertest": "^6.3.3"
   }
 }

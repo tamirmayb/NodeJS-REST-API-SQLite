@@ -4,13 +4,13 @@ const app = express();
 const bodyParser = require("body-parser");
 
 /* Database configuration */
-const database = require('./app/config/dbconfig');
+const database = require('./config/createDatabase');
 
 /* Init database */
 database.init();
 
 /* Init server listening */
-const port = process.argv[2] || 3000;
+const port = 3070;
 app.listen(port, function () {
     console.log("Server listening on port : " + port);
 });
@@ -20,4 +20,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 /* Router configuration */
-app.use(require('./app/routes/Router'));
+app.use(require('./routes/router'));
+
+module.exports = app;

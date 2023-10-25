@@ -1,12 +1,12 @@
-const logger = require("../../logger/logger");
+const logger = require("../logger/logger");
 
 /**
  * Controllers Common functions
  */
-class controllerCommon {
+class ResultHandler {
 
     findSuccess(res) {
-        logger.info('[ Common ] fetch completed successfully');
+        logger.info('[ ResultHandler ] fetch completed successfully');
 
         return (result) => {
             res.status(200); // Found
@@ -23,4 +23,4 @@ class controllerCommon {
 
 }
 
-module.exports = controllerCommon;
+module.exports = ResultHandler;

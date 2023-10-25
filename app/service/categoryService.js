@@ -1,30 +1,30 @@
 /* Load database & database configuration */
-const database = require('../../config/dbconfig');
+const database = require('../config/createDatabase');
 
 /* Load bluebird Promise */
 const Promise = require('bluebird');
 
 /* Load DAO Error entity */
-const DaoError = require('./daoError');
-const logger = require("../../logger/logger");
+const errorDao = require('../dao/errorDao');
+const logger = require("../logger/logger");
 
 /**
- * DAOs Common functions
+ * CategoryService functions
  */
-class Common {
+class CategoryService {
 
     findAll(sqlRequest) {
         return new Promise(function (resolve, reject) {
             database.db.all(sqlRequest, function (err, rows) {
                 if (err) {
-                    logger.error('[ Common ] db fetch failed about to send code 500');
+                    logger.error('[ CategoryService ] db fetch failed about to send code 500');
                     reject(
-                        new DaoError(20, "Internal server error")
+                        new errorDao(20, "Internal server error")
                     );
                 } else if (rows === null || rows.length === 0) {
-                    logger.warn('[ Common ] db fetch returned nothing');
+                    logger.warn('[ CategoryService ] db fetch returned nothing');
                     reject(
-                        new DaoError(21, "Searched category not found")
+                        new errorDao(21, "Searched category not found")
                     );
                 } else {
                     resolve(rows);
@@ -35,4 +35,4 @@ class Common {
 
 }
 
-module.exports = Common;
+module.exports = CategoryService;

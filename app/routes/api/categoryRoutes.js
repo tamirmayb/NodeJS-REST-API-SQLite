@@ -1,11 +1,11 @@
 /* Load Modules */
 const express = require('express');
 const logger = require("../../logger/logger");
-
 const router = express.Router();
+
 /* Load controller */
 const CategoryController = require('../../controller/categoryController');
-const categoryController = new CategoryController();
+const controller = new CategoryController();
 
 /**
  * Category Entity routes
@@ -13,12 +13,12 @@ const categoryController = new CategoryController();
 
 router.get('/:id', function (req, res) {
     logger.info('[ CategoryController ] is calling findById');
-    categoryController.findById(req, res);
+    controller.findById(req, res);
 });
 
 router.get('/', function (req, res) {
     logger.info('[ CategoryController ] is fetching all categories');
-    categoryController.findAll(res);
+    controller.findAll(res);
 });
 
 module.exports = router;

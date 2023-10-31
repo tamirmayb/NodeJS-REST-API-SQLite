@@ -46,6 +46,11 @@ class CategoryController {
             .catch(this.resultHandler.findError(res));
     };
 
+    /**
+     * Checks if value is a valid category using regex.
+     * @params value
+     * @return boolean
+     */
     _isValidCategoryId(value) {
         return /^-?\d+$/.test(value);
     }

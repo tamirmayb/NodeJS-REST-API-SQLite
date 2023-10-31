@@ -1,7 +1,7 @@
 /* Load category entity */
 const category = require('../model/category');
 
-/* Load DAO Common functions */
+/* Load service */
 const categoryService = require('../service/categoryService');
 
 /**
